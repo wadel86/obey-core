@@ -1,11 +1,18 @@
 package io.obey.core;
 
+import io.obey.core.br.BusinessRuleFactory;
 import io.obey.core.structure.Application;
 import io.obey.core.structure.Menu;
 import io.obey.core.structure.SpotContent;
 import io.obey.core.user.User;
 
 public class AnimationManagerImpl implements AnimationManager{
+
+    private BusinessRuleFactory businessRuleFactory;
+
+    public AnimationManagerImpl(BusinessRuleFactory businessRuleFactory) {
+        this.businessRuleFactory = businessRuleFactory;
+    }
 
     @Override
     public Application renderApplicationStructure(String id, User user) {
