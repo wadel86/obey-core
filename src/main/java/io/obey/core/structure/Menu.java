@@ -1,7 +1,7 @@
 package io.obey.core.structure;
 
 import io.obey.core.authorization.Authorization;
-import io.obey.core.user.User;
+import io.obey.core.session.Session;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ public class Menu {
     private List<Spot> spots;
     private Authorization authorization;
 
-    public void processFilters(User user){
+    public void processFilters(Session session){
        throw new RuntimeException("Not implemented yet!");
     }
 
-    public void filterMenus(User user) {
+    public void filterMenus(Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 
-    public void filterSpots(User user) {
+    public void filterSpots(Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 
-    public boolean isValid(User user) {
+    public boolean isValid(Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 }

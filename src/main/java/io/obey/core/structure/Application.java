@@ -1,6 +1,6 @@
 package io.obey.core.structure;
 
-import io.obey.core.user.User;
+import io.obey.core.session.Session;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class Application {
     private List<Menu> menus;
     private List<Spot> spots;
 
-    public void processFilters(User user) {
+    public void processFilters(Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 }

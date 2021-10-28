@@ -4,7 +4,7 @@ import io.obey.core.util.BiFunction;
 import io.obey.core.br.BusinessRuleImpl;
 import io.obey.core.br.BusinessRuleRegistry;
 import io.obey.core.structure.tile.Tile;
-import io.obey.core.user.User;
+import io.obey.core.session.Session;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +14,8 @@ public class BusinessRuleBuilder {
     private BusinessRuleRegistryBuilder parent;
 
     private String name;
-    private BiFunction<User, Map<String, String>, List<Tile>> action;
-    private BiFunction<User, Map<String, String>, Map<String, String>> validation;
+    private BiFunction<Session, Map<String, String>, List<Tile>> action;
+    private BiFunction<Session, Map<String, String>, Map<String, String>> paramsBuilder;
 
     public BusinessRuleBuilder(BusinessRuleRegistryBuilder parent) {
         this.parent = parent;
@@ -27,24 +27,24 @@ public class BusinessRuleBuilder {
     }
 
     public BusinessRuleBuilder withAction
-            (BiFunction<User, Map<String, String>, List<Tile>> action){
+            (BiFunction<Session, Map<String, String>, List<Tile>> action){
         this.action = action;
         return this;
     }
 
     public BusinessRuleBuilder withParamsBuilder
-            (BiFunction<User, Map<String, String>, Map<String, String>> validation){
-        this.validation = validation;
+            (BiFunction<Session, Map<String, String>, Map<String, String>> paramsBuilder){
+        this.paramsBuilder = paramsBuilder;
         return this;
     }
 
     public BusinessRuleBuilder rule(){
-        this.parent.addRule(name, new BusinessRuleImpl(action, validation));
+        this.parent.addRule(name, new BusinessRuleImpl(action, paramsBuilder));
         return new BusinessRuleBuilder(this.parent);
     }
 
     public BusinessRuleRegistry build(){
-        this.parent.addRule(name, new BusinessRuleImpl(action, validation));
+        this.parent.addRule(name, new BusinessRuleImpl(action, paramsBuilder));
         return this.parent.build();
     }
 }

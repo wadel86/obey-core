@@ -1,7 +1,7 @@
 package io.obey.core.br;
 
 import io.obey.core.structure.tile.Tile;
-import io.obey.core.user.User;
+import io.obey.core.session.Session;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +17,11 @@ public class BusinessRuleFactoryExample extends BusinessRuleFactory {
                                            .build();
     }
 
-    public List<Tile> getRecommendation(User user, Map<String, String> params){
+    public List<Tile> getRecommendation(Session session, Map<String, String> params){
         return new ArrayList<>();
     }
 
-    public Map<String, String> buildRecommendationParams(User user, Map<String, String> params){
+    public Map<String, String> buildRecommendationParams(Session session, Map<String, String> params){
         return new HashMap<>();
     }
 }

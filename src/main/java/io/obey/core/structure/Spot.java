@@ -2,7 +2,7 @@ package io.obey.core.structure;
 
 import io.obey.core.authorization.Authorization;
 import io.obey.core.structure.tile.Tile;
-import io.obey.core.user.User;
+import io.obey.core.session.Session;
 import io.obey.core.util.Page;
 
 import java.util.List;
@@ -18,19 +18,19 @@ public class Spot {
     private List<Tile> tiles;
     private Authorization authorization;
 
-    public SpotContent getSpotPreview(User user){
+    public SpotContent getSpotPreview(Session session){
         throw new RuntimeException("Not implemented yet!");
     }
 
-    public SpotContent getSpotContent(User user, Page page){
+    public SpotContent getSpotContent(Session session, Page page){
         throw new RuntimeException("Not implemented yet!");
     }
 
-    private List<Tile> processTiles(User user) {
+    private List<Tile> processTiles(Session session) {
        throw new RuntimeException("Not implemented yet!");
     }
 
-    public boolean isValid(User user) {
+    public boolean isValid(Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 }
