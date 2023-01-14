@@ -8,19 +8,19 @@ import io.obey.core.session.Session;
 
 public class AnimationManagerImpl implements AnimationManager{
 
-    private BusinessRuleFactory businessRuleFactory;
+    private final BusinessRuleFactory businessRuleFactory;
 
     public AnimationManagerImpl(BusinessRuleFactory businessRuleFactory) {
         this.businessRuleFactory = businessRuleFactory;
     }
 
     @Override
-    public Application renderApplicationStructure(String id, Session session) {
+    public Application renderApplication(String id, Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 
     @Override
-    public Menu renderMenuStructure(String id, Session session) {
+    public Menu renderMenu(String id, Session session) {
         throw new RuntimeException("Not implemented yet!");
     }
 
